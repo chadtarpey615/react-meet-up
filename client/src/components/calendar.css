@@ -1,0 +1,13 @@
+.calendar {
+  justify-content: "center";
+  align-items: center;
+  margin-top: 2rem;
+  display: inline-block;
+  width: 900px;
+  height: 400px;
+}
+.react-calendar__tile {
+  border: 1px solid grey;
+  height: 200px;
+  width: 300px;
+}
