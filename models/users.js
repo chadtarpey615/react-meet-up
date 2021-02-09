@@ -22,7 +22,16 @@ const userSchema = new Schema({
         lowercase: true,
         required: [true, "can't be blank"],
         match: [/\S+@\S+\.\S+/, "is invalid"],
+        unique: true,
+        index: true
 
+    },
+    password: {
+        type: String,
+        required: true
     }
 
-})
+});
+
+const User = mongoose.model("user", userSchema);
+module.exports = User;
