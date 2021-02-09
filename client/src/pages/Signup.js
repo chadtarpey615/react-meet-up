@@ -8,7 +8,7 @@ function SignUp() {
 
     function handleInputChange(e) {
         const { name, value } = e.target;
-        setNewUser({ ...name, [name]: value.trim() })
+        setNewUser({ ...newUser, [name]: value.trim() })
         console.log(e.target.value)
     }
     function handleFormSubmit(e) {
@@ -33,14 +33,14 @@ function SignUp() {
                 <input
                     htmlFor="firstName"
                     placeholder="First Name"
-                    name="firstName"
+                    name="first_name"
                     type="text"
                     onChange={handleInputChange}
                 />
                 <input
                     htmlFor="lastName"
                     placeholder="Last Name"
-                    name="lastName"
+                    name="last_name"
                     type="text"
                     onChange={handleInputChange}
 
