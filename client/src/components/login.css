@@ -1,4 +1,11 @@
-.MuiButton-label {
-  align-items: start;
-  justify-content: flex-start;
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: flex-end;
+}
+
+input {
+  align-items: center;
+  justify-content: center;
 }
