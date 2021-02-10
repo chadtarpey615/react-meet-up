@@ -3,6 +3,10 @@ import API from "../utils/API";
 import { Container, Col, Row } from "reactstrap";
 
 
+
+import "../components/signUp.css";
+
+
 function SignUp() {
     const [newUser, setNewUser] = useState({});
 
@@ -63,6 +67,8 @@ function SignUp() {
                 />
                 <button onClick={handleFormSubmit}>Enter</button>
             </form>
+
+
         </Container>
     )
 }

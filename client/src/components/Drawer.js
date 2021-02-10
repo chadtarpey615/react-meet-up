@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "../components//login.css";
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -24,10 +24,7 @@ const useStyles = makeStyles({
 export default function TemporaryDrawer() {
     const classes = useStyles();
     const [state, setState] = React.useState({
-        top: false,
         left: false,
-        bottom: false,
-        right: false,
     });
 
     const toggleDrawer = (anchor, open) => (event) => {
@@ -69,7 +66,7 @@ export default function TemporaryDrawer() {
 
     return (
         <div>
-            {['left', 'right', 'top', 'bottom'].map((anchor) => (
+            {['left'].map((anchor) => (
                 <React.Fragment key={anchor}>
                     <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
                     <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
