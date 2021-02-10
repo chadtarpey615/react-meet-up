@@ -53,7 +53,10 @@
     ]
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "devDependencies": {},
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chadtarpey615/react-meet-up.git"

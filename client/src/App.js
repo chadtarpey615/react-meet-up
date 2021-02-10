@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar"
 import Calendar from "./components/Calendar";
 import SignUp from "./pages/Signup"
+import Login from "./pages/Login"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import './App.css';
@@ -14,6 +15,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <SignUp />
+          </Route>
+          <Route exact path="/login">
+            <Login />
           </Route>
           <Route exact path="/calendar">
             <Calendar />
