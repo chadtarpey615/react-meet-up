@@ -1,4 +1,5 @@
 const db = require("../models/");
+const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 
@@ -15,11 +16,12 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
     findOne: function (req, res) {
-        // console.log(req.params.username);
         // console.log("Find one function");
-        db.User.findOne({ username: req.params.username })
+        db.User.findOne({ username: req.params.email })
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
+        console.log("findone");
+
     },
     create: function (req, res) {
         console.log("controller")
@@ -28,17 +30,18 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
     register: async function (req, res) {
-        console.log(req.body);
+        console.log(req);
         try {
             // Creates the hashedpasswords
-            //   const hashedPassword = await bcrypt.hashSync(req.body.password, 10);
+            const hashedPassword = await bcrypt.hashSync(req.body.password, 10);
 
-            //console.log(hashedPassword);
+            // console.log(hashedPassword);
+
             db.User.create({
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 email: req.body.email,
-                password: req.body.password,
+                password: hashedPassword,
             }).then((userData) => {
                 //console.log("Then");
                 res.send(userData);

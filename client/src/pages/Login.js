@@ -17,7 +17,6 @@ function Login() {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        console.log(newLogin.email)
         API.loginUser({
             email: newLogin.email,
             password: newLogin.password
@@ -26,6 +25,8 @@ function Login() {
                 setUserState(res.data)
                 console.log(res.data)
             })
+
+            .catch(err => console.log(err))
     }
     return (
         <>

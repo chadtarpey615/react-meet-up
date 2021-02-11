@@ -1,22 +1,23 @@
 const router = require("express").Router();
 const userController = require("../../controller/userController");
 const User = require("../../models/users");
+const passport = require("../../config/passport.js")
 
-router.route("/").post(userController.create);
+router.route("/").post(userController.register);
 
-router.route("/login").post((req, res) => {
-    if (err) throw err;
-    else {
-        userController.findOne(
-            {
-                email: email
-            },
+router.route("/login").post((req, res, next) => {
+    passport.authenticate("local", (err, user, info) => {
+        if (err) throw err;
+        if (!user) res.send("No User exists");
+        else {
             req.login(user, (err) => {
-                res.json(req.user)
-                console.log(req.user)
-            })
-        )
-    }
-})
+                if (err) throw err;
+                //res.send("Success!!!");
+                res.json(req.user);
+                console.log(req.user);
+            });
+        }
+    })(req, res, next);
+});
 
 module.exports = router;
