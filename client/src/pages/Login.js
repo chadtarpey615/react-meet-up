@@ -22,8 +22,9 @@ function Login() {
             password: newLogin.password
         })
             .then(res => {
-                setUserState(res.data)
-                console.log(res.data)
+                setUserState(res.config.data)
+                console.log(res.config.data)
+
             })
 
             .catch(err => console.log(err))
@@ -51,6 +52,7 @@ function Login() {
                 >
                     Login
                 </button>
+                {/* <h1>{userState.email}</h1> */}
             </div>
         </>
     )

@@ -1,9 +1,10 @@
 .calendar {
-  justify-content: "center";
+  justify-content: center;
   align-items: center;
+  align-content: center;
   margin-top: 2rem;
   display: inline-block;
-  width: 900px;
+  width: 700px;
   height: 400px;
 }
 .react-calendar__tile {

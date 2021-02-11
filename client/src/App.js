@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar"
-import Calendar from "./components/Calendar";
+import Calendar from "./pages/Calendar";
 import SignUp from "./pages/Signup"
 import Login from "./pages/Login"
 import UserStore from "./utils/UserStore";
@@ -12,9 +12,10 @@ import { UserContext } from "./utils/UserStore";
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <UserStore>
         <Router>
+          <Navbar />
+
           <Switch>
             <Route exact path="/">
               <SignUp />

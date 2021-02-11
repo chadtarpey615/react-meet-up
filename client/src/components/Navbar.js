@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, Redirect } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -35,7 +36,9 @@ function Navbar() {
                     <Typography variant="h6" className={classes.title}>
                         Meet-Up
             </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
+                        <Button color="inherit">Login</Button>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </div>

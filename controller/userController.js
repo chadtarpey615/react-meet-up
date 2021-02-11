@@ -16,12 +16,11 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
     findOne: function (req, res) {
+        // console.log(req.params.username);
         // console.log("Find one function");
-        db.User.findOne({ username: req.params.email })
+        db.User.findOne({ email: req.params.email })
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
-        console.log("findone");
-
     },
     create: function (req, res) {
         console.log("controller")
@@ -30,7 +29,7 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
     register: async function (req, res) {
-        console.log(req);
+        // console.log(req);
         try {
             // Creates the hashedpasswords
             const hashedPassword = await bcrypt.hashSync(req.body.password, 10);
