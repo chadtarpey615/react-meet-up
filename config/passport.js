@@ -9,7 +9,7 @@ passport.use(
             usernameField: "email",
         },
         function (email, password, done) {
-            // console.log(email, password);
+            console.log(email, password);
             db.User.findOne(
 
                 {

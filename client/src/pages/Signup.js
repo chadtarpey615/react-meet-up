@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import API from "../utils/API";
 import { Container, Col, Row } from "reactstrap";
-
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 
 import "../components/signUp.css";
@@ -27,45 +29,31 @@ function SignUp() {
             )
             .catch(err => console.log(err))
     }
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            '& > *': {
+                margin: theme.spacing(1),
+                width: '25ch',
+            },
+        },
+    }));
+
+    const classes = useStyles();
     return (
         <Container>
             <div>
                 <h1>Sign Up</h1>
             </div>
 
-            <form>
-                <input
-                    htmlFor="firstName"
-                    placeholder="First Name"
-                    name="first_name"
-                    type="text"
-                    onChange={handleInputChange}
-                />
-                <input
-                    htmlFor="lastName"
-                    placeholder="Last Name"
-                    name="last_name"
-                    type="text"
-                    onChange={handleInputChange}
 
-                />
-                <input
-                    htmlFor="email"
-                    placeholder="email"
-                    name="email"
-                    type="email"
-                    onChange={handleInputChange}
 
-                />
-                <input
-                    htmlFor="password"
-                    placeholder="password"
-                    name="password"
-                    type="password"
-                    onChange={handleInputChange}
+            <form className={classes.root} noValidate autoComplete="off">
+                <TextField id="standard-basic" label="First Name" onChange={handleInputChange} name="first_name" type="text" />
+                <TextField id="standard-basic" label="Last Name" onChange={handleInputChange} name="last_name" type="text" />
+                <TextField id="standard-basic" label="Email" onChange={handleInputChange} name="email" type="email" />
+                <TextField id="standard-basic" label="Password" onChange={handleInputChange} name="password" type="password" />
+                <Button variant="contained" color="primary" onClick={handleFormSubmit} type="submit">Default</Button>
 
-                />
-                <button onClick={handleFormSubmit}>Enter</button>
             </form>
 
 

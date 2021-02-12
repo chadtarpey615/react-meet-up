@@ -1,4 +1,7 @@
 import React, { useState, useContext } from "react";
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import TemporaryDrawer from "../components/Drawer";
 import { UserContext } from "../utils/UserStore";
 import API from "../utils/API.js";
@@ -7,6 +10,15 @@ function Login() {
     const [newLogin, setNewLogin] = useState({})
     const { userState, setUserState } = useContext(UserContext);
 
+
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            '& > *': {
+                margin: theme.spacing(1),
+                width: '25ch',
+            },
+        },
+    }));
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -29,31 +41,20 @@ function Login() {
 
             .catch(err => console.log(err))
     }
+    const classes = useStyles();
     return (
         <>
             <TemporaryDrawer />
             <div className="login">
                 <h1>LOG IN </h1>
-                <input
-                    onChange={handleChange}
-                    name="email"
-                    type="email"
-                    placeholder="email"
-                />
-                <input
-                    onChange={handleChange}
-                    name="password"
-                    type="password"
-                    placeholder="password"
-                />
-                <button
-                    onClick={handleFormSubmit}
-                    type="submit"
-                >
-                    Login
-                </button>
-                {/* <h1>{userState.email}</h1> */}
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField id="standard-basic" label="Email" onChange={handleChange} name="email" />
+                    <TextField id="standard-basic" label="Password" onChange={handleChange} name="password" />
+                    <Button variant="contained" onClick={handleFormSubmit} type="submit">Default</Button>
+
+                </form>
             </div>
+
         </>
     )
 }
