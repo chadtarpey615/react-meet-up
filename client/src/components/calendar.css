@@ -3,12 +3,26 @@
   align-items: center;
   align-content: center;
   margin-top: 2rem;
-  display: inline-block;
-  width: 700px;
-  height: 400px;
+  display: flex;
+  position: fixed;
+  top: 40%;
+  left: 28%;
+  flex-direction: column;
+  /* position: relative; */
+  width: 800px;
+  height: 200px;
 }
 .react-calendar__tile {
-  border: 1px solid grey;
-  height: 200px;
+  border: 1px solid grey !important;
+  height: 100px;
   width: 300px;
+}
+
+.react-calendar {
+  border: none;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 3rem;
 }
