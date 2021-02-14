@@ -46,13 +46,12 @@ function SignUp() {
             </div>
 
 
-
             <form className={classes.root} noValidate autoComplete="off">
-                <TextField id="standard-basic" label="First Name" onChange={handleInputChange} name="first_name" type="text" />
-                <TextField id="standard-basic" label="Last Name" onChange={handleInputChange} name="last_name" type="text" />
-                <TextField id="standard-basic" label="Email" onChange={handleInputChange} name="email" type="email" />
-                <TextField id="standard-basic" label="Password" onChange={handleInputChange} name="password" type="password" />
-                <Button variant="contained" color="primary" onClick={handleFormSubmit} type="submit">Default</Button>
+                <TextField label="First Name" onChange={handleInputChange} name="first_name" type="text" />
+                <TextField label="Last Name" onChange={handleInputChange} name="last_name" type="text" />
+                <TextField label="Email" onChange={handleInputChange} name="email" type="email" />
+                <TextField label="Password" onChange={handleInputChange} name="password" type="password" />
+                <Button variant="contained" onClick={handleFormSubmit} type="submit">Default</Button>
 
             </form>
 

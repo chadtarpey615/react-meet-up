@@ -13,7 +13,7 @@ router.route("/login").post((req, res, next) => {
         else {
             req.login(user, (err) => {
                 if (err) throw err;
-                //res.send("Success!!!");
+                // res.send("Success!!!");
                 res.json(req.user);
                 // console.log(req.user);
             });

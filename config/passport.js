@@ -3,6 +3,7 @@ const localStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
 const db = require("../models");
 
+
 passport.use(
     new localStrategy(
         {
@@ -11,16 +12,12 @@ passport.use(
         function (email, password, done) {
             console.log(email, password);
             db.User.findOne(
-
                 {
                     email: email,
-
                 },
-
                 function (err, user) {
-
                     if (err) throw err;
-                    // console.log(user);
+                    console.log(user);
                     if (!user) {
                         console.log("localStrategy");
                         return done(null, false, {
@@ -28,7 +25,7 @@ passport.use(
                         });
                     } else {
                         bcrypt.compare(password, user.password, (err, result) => {
-                            // console.log("pass!!!!!:", user.password);
+                            console.log("pass!!!!!:", user.password);
                             // If there is a user with the given email, but the password the user gives us is incorrect
                             if (!result) {
                                 return done(null, false, {
@@ -36,9 +33,7 @@ passport.use(
                                 });
                             }
                             // If none of the above, return the user
-                            console.log("validUser");
-                            // console.log(user)
-
+                            // console.log("validUser");
                             return done(null, user);
                         });
                     }
@@ -48,13 +43,14 @@ passport.use(
     )
 );
 passport.serializeUser((user, cb) => {
-    console.log("serUser: ", user)
+    // console.log("serUser: ", user)
     cb(null, user);
 });
 
 passport.deserializeUser(function (obj, cb) {
-    //console.log("done: ", obj)
+    console.log("done: ", obj)
     cb(null, obj);
 });
+
 
 module.exports = passport;

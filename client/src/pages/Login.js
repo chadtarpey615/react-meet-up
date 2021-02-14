@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { Link, Redirect } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -8,6 +9,7 @@ import API from "../utils/API.js";
 import "../components/login.css"
 function Login() {
     const [newLogin, setNewLogin] = useState({})
+    const [redirect, setRedirect] = useState({ redirect: null });
     const { userState, setUserState } = useContext(UserContext);
 
 
@@ -19,6 +21,11 @@ function Login() {
             },
         },
     }));
+    useEffect(() => {
+        if (userState) {
+            setRedirect({ redirect: true })
+        }
+    }, [userState])
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -34,7 +41,7 @@ function Login() {
             password: newLogin.password
         })
             .then(res => {
-                setUserState(res.config.data)
+                setUserState(res.data)
                 console.log(res.config.data)
 
             })
@@ -42,21 +49,26 @@ function Login() {
             .catch(err => console.log(err))
     }
     const classes = useStyles();
-    return (
-        <>
-            <TemporaryDrawer />
-            <div className="login">
-                <h1>LOG IN </h1>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField id="standard-basic" label="Email" onChange={handleChange} name="email" />
-                    <TextField id="standard-basic" label="Password" onChange={handleChange} name="password" />
-                    <Button variant="contained" onClick={handleFormSubmit} type="submit">Default</Button>
+    if (redirect.redirect) {
+        return <Redirect to={"/calendar"} />
+    } else {
+        return (
+            <>
+                <TemporaryDrawer />
+                <div className="login">
+                    <h1>LOG IN </h1>
+                    <form className={classes.root} noValidate autoComplete="off">
+                        <TextField id="standard-basic" label="Email" onChange={handleChange} name="email" />
+                        <TextField id="standard-basic" label="Password" onChange={handleChange} name="password" />
+                        <Button variant="contained" onClick={handleFormSubmit} type="submit">Default</Button>
 
-                </form>
-            </div>
+                    </form>
+                </div>
 
-        </>
-    )
+            </>
+        )
+    }
+
 }
 
 export default Login;
