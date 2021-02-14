@@ -48,9 +48,14 @@ function Login() {
 
             .catch(err => console.log(err))
     }
+
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        window.location.replace('/')
+    }
     const classes = useStyles();
     if (redirect.redirect) {
-        return <Redirect to={"/calendar"} />
+        return <Redirect to={"/calendar/" + userState.email} />
     } else {
         return (
             <>
@@ -60,7 +65,8 @@ function Login() {
                     <form className={classes.root} noValidate autoComplete="off">
                         <TextField id="standard-basic" label="Email" onChange={handleChange} name="email" />
                         <TextField id="standard-basic" label="Password" onChange={handleChange} name="password" />
-                        <Button variant="contained" onClick={handleFormSubmit} type="submit">Default</Button>
+                        <Button variant="contained" onClick={handleFormSubmit} type="submit">Log In </Button>
+                        <Button variant="contained" onClick={handleSignUp} type="submit">Sign Up </Button>
 
                     </form>
                 </div>

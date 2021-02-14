@@ -23,7 +23,7 @@ function App() {
             <Route exact path="/login">
               <Login />
             </Route>
-            <Route exact path="/calendar">
+            <Route exact path="/calendar/:email">
               <Calendar />
             </Route>
           </Switch>
