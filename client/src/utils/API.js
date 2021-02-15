@@ -9,6 +9,11 @@ export default {
     loginUser: function (user) {
         console.log(user)
         return axios.post("/api/user/login", user)
+    },
+
+    saveEvent: function (email) {
+        console.log(email)
+        return axios.post("/api/workout/", email)
     }
 
 };

@@ -49,4 +49,8 @@ module.exports = {
             res.send(err);
         }
     },
+
+    saveEvent: function (req, res) {
+        console.log("saving event")
+    }
 }
