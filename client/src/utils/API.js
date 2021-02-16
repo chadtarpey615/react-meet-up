@@ -11,7 +11,7 @@ export default {
         return axios.post("/api/user/login", user)
     },
 
-    saveEvent: function (email) {
+    saveEvent: function (email, event) {
         console.log(email)
         return axios.post("/api/workout/", email)
     }
