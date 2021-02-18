@@ -52,13 +52,13 @@ module.exports = {
 
     saveEvent: function (req, res) {
         console.log("saving event")
-        // db.Workout.create({
-        //     name: req.body.name,
-        //     distance: req.body.distance,
-        //     date: req.body.date
-        // }).then((userData) => {
-        //     res.send(userData);
-        // })
-        //     .catch((err) => console.log(err))
+        db.Workout.create({
+            name: req.body.name,
+            distance: req.body.distance,
+            date: req.body.date
+        }).then((userData) => {
+            res.send(userData);
+        })
+            .catch((err) => console.log(err))
     }
 }

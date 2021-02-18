@@ -13,7 +13,7 @@ export default {
 
     saveEvent: function (email, event) {
         console.log(email)
-        return axios.post("/api/workout/", email)
+        return axios.post("/api/workout/" + email, event)
     }
 
 };
