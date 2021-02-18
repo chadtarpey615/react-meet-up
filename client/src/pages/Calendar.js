@@ -21,7 +21,7 @@ function MainCalendar(props) {
 
     const handleClick = (event) => {
         event.preventDefault()
-        let eventData = [{ name: newEvent.name, distance: newEvent.distance, date: newEvent.date }]
+        let eventData = { name: newEvent.name, distance: newEvent.distance, date: newEvent.date }
         API.saveEvent(userState.email, eventData)
             // console.log(userState.email)
 

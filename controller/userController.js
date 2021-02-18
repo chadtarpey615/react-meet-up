@@ -52,6 +52,7 @@ module.exports = {
 
     saveEvent: function (req, res) {
         console.log("saving event")
+        console.log(req.body.name)
         db.Workout.create({
             name: req.body.name,
             distance: req.body.distance,
