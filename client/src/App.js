@@ -3,6 +3,7 @@ import Calendar from "./pages/Calendar";
 import SignUp from "./pages/Signup"
 import Login from "./pages/Login"
 import UserStore from "./utils/UserStore";
+import EventStore from "./utils/eventStore";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import './App.css';
@@ -13,21 +14,23 @@ function App() {
   return (
     <div className="App">
       <UserStore>
-        <Router>
-          <Navbar />
+        <EventStore>
+          <Router>
+            <Navbar />
 
-          <Switch>
-            <Route exact path="/">
-              <SignUp />
-            </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/calendar/:email">
-              <Calendar />
-            </Route>
-          </Switch>
-        </Router>
+            <Switch>
+              <Route exact path="/">
+                <SignUp />
+              </Route>
+              <Route exact path="/login">
+                <Login />
+              </Route>
+              <Route exact path="/calendar/:email">
+                <Calendar />
+              </Route>
+            </Switch>
+          </Router>
+        </EventStore>
       </UserStore>
     </div>
   );

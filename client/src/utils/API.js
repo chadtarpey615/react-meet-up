@@ -14,6 +14,10 @@ export default {
     saveEvent: function (email, event) {
         console.log(email)
         return axios.post("/api/workout/" + email, event)
+    },
+
+    getEvents: function (id) {
+        return axios.get("api/workout/" + id)
     }
 
 };

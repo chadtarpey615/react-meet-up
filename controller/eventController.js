@@ -14,13 +14,13 @@ module.exports = {
     },
     findOne: function (req, res) {
         console.log(req.params.username);
-        // console.log("Find one function");
+        console.log("getting event");
         db.Workout.findOne({ username: req.params.username })
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
     },
     create: function (req, res) {
-        console.log("controller")
+        // console.log("controller")
         db.Workout.create(req.body)
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
@@ -48,8 +48,7 @@ module.exports = {
     },
 
     saveEvent: function (req, res) {
-        console.log("saving event")
-        console.log(req.body.name)
+        // console.log("saving event")
         db.Workout.create({
             name: req.body.name,
             distance: req.body.distance,

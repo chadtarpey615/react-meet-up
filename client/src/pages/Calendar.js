@@ -5,6 +5,8 @@ import TextField from '@material-ui/core/TextField';
 import Buttons from '@material-ui/core/Button';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { UserContext } from "../utils/UserStore.js";
+import { EventContext } from "../utils/eventStore.js";
+
 import Form from "../components/Form"
 import 'react-calendar/dist/Calendar.css';
 import "../components/calendar.css"
@@ -12,7 +14,7 @@ import "../components/calendar.css"
 function MainCalendar(props) {
     const [value, onChange] = useState(new Date());
     const [newEvent, setNewEvent] = useState({});
-    const [eventState, setEventState] = useState({});
+    // const [eventState, setEventState] = useContext(EventContext);
     const { userState, setUserState } = useContext(UserContext);
     const [modal, setModal] = useState(false);
     console.log(newEvent.name)
@@ -21,12 +23,17 @@ function MainCalendar(props) {
         className
     } = props;
 
+
+    useEffect(() => {
+        console.log(window.location.pathname.split("/")[2])
+    })
     // useEffect(() => {
     //     loadEvent(eventName);
     // }, [userState])
     const handleClick = (event) => {
         event.preventDefault()
-        let eventData = { name: newEvent.name, distance: newEvent.distance, date: newEvent.date }
+        const { name, distance, date } = newEvent;
+        let eventData = { name: name, distance: distance, date: date }
         API.saveEvent(userState.email, eventData)
             // console.log(userState.email)
 
@@ -51,7 +58,8 @@ function MainCalendar(props) {
     function loadEvent(eventName) {
         API.getEvents(eventName)
             .then((res) => {
-                setEventState(res.data);
+                console.log(res.data)
+                // setEventState(res.data);
             })
     }
 
@@ -68,8 +76,8 @@ function MainCalendar(props) {
                     value={value}
                     onClickDay={toggle}
                 />
-                {newEvent.name}
-
+                <button>add event</button>
+                <button>load events</button>
             </div>
 
             <Modal isOpen={modal} toggle={toggle} className={className}>
