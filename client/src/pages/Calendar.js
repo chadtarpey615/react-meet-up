@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Link, Redirect } from "react-router-dom";
 import API from "../utils/API.js";
 import Calendar from 'react-calendar';
 import TextField from '@material-ui/core/TextField';
 import Buttons from '@material-ui/core/Button';
+import Event from "../pages/Events"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { UserContext } from "../utils/UserStore.js";
 import { EventContext } from "../utils/eventStore.js";
-
-import Form from "../components/Form"
 import 'react-calendar/dist/Calendar.css';
 import "../components/calendar.css"
 
@@ -17,6 +17,7 @@ function MainCalendar(props) {
     // const [eventState, setEventState] = useContext(EventContext);
     const { userState, setUserState } = useContext(UserContext);
     const [modal, setModal] = useState(false);
+
     console.log(newEvent.name)
     const {
         buttonLabel,
@@ -76,9 +77,17 @@ function MainCalendar(props) {
                     value={value}
                     onClickDay={toggle}
                 />
-                <button>add event</button>
+
+            </div>
+            <div className="btn">
+                <button onClick={() => {
+                    window.location.replace("/")
+                }
+                }>add event</button>
+
                 <button>load events</button>
             </div>
+
 
             <Modal isOpen={modal} toggle={toggle} className={className}>
                 <ModalHeader>Add Event</ModalHeader>

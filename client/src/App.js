@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar"
 import Calendar from "./pages/Calendar";
 import SignUp from "./pages/Signup"
 import Login from "./pages/Login"
+import Event from "./pages/Events"
 import UserStore from "./utils/UserStore";
 import EventStore from "./utils/eventStore";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -27,6 +28,10 @@ function App() {
               </Route>
               <Route exact path="/calendar/:email">
                 <Calendar />
+              </Route>
+
+              <Route exact path="/calendar/:email/:?">
+                <Event />
               </Route>
             </Switch>
           </Router>
