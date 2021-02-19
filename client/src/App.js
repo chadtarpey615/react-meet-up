@@ -30,7 +30,7 @@ function App() {
                 <Calendar />
               </Route>
 
-              <Route exact path="/calendar/:email/:?">
+              <Route exact path="/calendar/:email/:eventName">
                 <Event />
               </Route>
             </Switch>

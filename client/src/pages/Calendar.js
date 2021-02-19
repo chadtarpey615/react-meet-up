@@ -80,12 +80,14 @@ function MainCalendar(props) {
 
             </div>
             <div className="btn">
-                <button onClick={() => {
-                    window.location.replace("/")
-                }
-                }>add event</button>
+                <Link
+                    to={"/calendar/" + userState.email + "/" + newEvent.name}
+                >
+                    <Buttons>add event</Buttons>
 
-                <button>load events</button>
+                </Link>
+
+                <Buttons>load events</Buttons>
             </div>
 
 
