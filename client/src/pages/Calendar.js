@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import API from "../utils/API.js";
 import Calendar from 'react-calendar';
 import TextField from '@material-ui/core/TextField';
@@ -12,13 +12,18 @@ import "../components/calendar.css"
 function MainCalendar(props) {
     const [value, onChange] = useState(new Date());
     const [newEvent, setNewEvent] = useState({});
+    const [eventState, setEventState] = useState({});
     const { userState, setUserState } = useContext(UserContext);
     const [modal, setModal] = useState(false);
+    console.log(newEvent.name)
     const {
         buttonLabel,
         className
     } = props;
 
+    // useEffect(() => {
+    //     loadEvent(eventName);
+    // }, [userState])
     const handleClick = (event) => {
         event.preventDefault()
         let eventData = { name: newEvent.name, distance: newEvent.distance, date: newEvent.date }
@@ -43,6 +48,13 @@ function MainCalendar(props) {
         console.log(e.target.value)
     }
 
+    function loadEvent(eventName) {
+        API.getEvents(eventName)
+            .then((res) => {
+                setEventState(res.data);
+            })
+    }
+
     const toggle = () => setModal(true);
 
 
@@ -56,7 +68,7 @@ function MainCalendar(props) {
                     value={value}
                     onClickDay={toggle}
                 />
-
+                {newEvent.name}
 
             </div>
 

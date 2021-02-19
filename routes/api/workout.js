@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const userController = require("../../controller/userController");
+const eventController = require("../../controller/eventController.js");
 
 
 router.route("/:eventName")
-    .post(userController.saveEvent);
+    .post(eventController.saveEvent)
+    .get(eventController.findOne);
 
 module.exports = router;
