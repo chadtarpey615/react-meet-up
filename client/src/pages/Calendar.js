@@ -7,14 +7,14 @@ import Buttons from '@material-ui/core/Button';
 import Event from "../pages/Events"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { UserContext } from "../utils/UserStore.js";
-import { EventContext } from "../utils/eventStore.js";
+import { EventContext } from "../utils/EventStore.js";
 import 'react-calendar/dist/Calendar.css';
 import "../components/calendar.css"
 
 function MainCalendar(props) {
     const [value, onChange] = useState(new Date());
     const [newEvent, setNewEvent] = useState({});
-    // const [eventState, setEventState] = useContext(EventContext);
+    const { eventState, setEventState } = useContext(EventContext);
     const { userState, setUserState } = useContext(UserContext);
     const [modal, setModal] = useState(false);
 
@@ -86,8 +86,11 @@ function MainCalendar(props) {
                     <Buttons>add event</Buttons>
 
                 </Link>
-
-                <Buttons>load events</Buttons>
+                <Link
+                    to={"/calendar/" + userState.email + "/allevents"}
+                >
+                    <Buttons>load events</Buttons>
+                </Link>
             </div>
 
 

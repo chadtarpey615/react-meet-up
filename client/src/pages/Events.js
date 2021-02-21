@@ -1,25 +1,27 @@
 import React, { useState, useContext, useEffect } from 'react';
 import API from "../utils/API.js";
 import { UserContext } from "../utils/UserStore.js";
-import { EventContext } from "../utils/eventStore.js";
+import { EventContext } from "../utils/EventStore.js";
 import TextField from '@material-ui/core/TextField';
 import Buttons from '@material-ui/core/Button';
 
 function Events() {
-    const [newEvent, setNewEvent] = useState({});
+    // const [newEvent, setNewEvent] = useState({});
+    const { eventState, setEventState } = useContext(EventContext);
     const { userState, setUserState } = useContext(UserContext);
 
+    useEffect(() => console.log(userState))
 
     const handleClick = (event) => {
         event.preventDefault()
-        const { name, distance, date } = newEvent;
+        const { name, distance, date } = eventState;
         let eventData = { name: name, distance: distance, date: date }
         API.saveEvent(userState.email, eventData)
             // console.log(userState.email)
 
             .then((res) => {
                 console.log(res.config.data)
-                setNewEvent(res.config.data)
+                setEventState(res.config.data)
             })
             .catch((err) => console.log(err))
         // setModal(false);
@@ -31,7 +33,7 @@ function Events() {
     const handleInputChange = (e) => {
         e.preventDefault();
         const { name, value } = e.target;
-        setNewEvent({ ...newEvent, [name]: value.trim() })
+        setEventState({ ...eventState, [name]: value.trim() })
         console.log(e.target.value)
     }
 
