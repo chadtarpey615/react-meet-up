@@ -2,6 +2,7 @@ const db = require("../models/");
 
 module.exports = {
     findAll: function (req, res) {
+        console.log("being hit for events")
         db.Workout.find(req.query)
             .sort({ date: -1 })
             .then((dbModel) => res.json(dbModel))

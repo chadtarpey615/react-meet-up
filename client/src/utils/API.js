@@ -16,8 +16,9 @@ export default {
         return axios.post("/api/workout/" + email, event)
     },
 
-    getEvents: function (id) {
-        return axios.get("api/workout/" + id)
+    findAllEvents: function () {
+
+        return axios.get("api/workout/")
     }
 
 };
