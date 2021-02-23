@@ -1,11 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { EventContext } from "../utils/EventStore.js";
 import API from "../utils/API";
+import { Container, Col, Row } from "reactstrap";
+
 
 
 function AllEvents() {
     const { eventState, setEventState } = useContext(EventContext);
-    // console.log(eventState[0].date)
+    //  console.log(eventState[0].date)
     useEffect(() => {
         loadEvents();
     }, [])
@@ -20,16 +22,20 @@ function AllEvents() {
             .catch((err) => console.log(err))
     };
     return (
-        <div>jhi
-            
-            {eventState.map(event => (
-                <div className="all-events">
-                <h1>{event.name}</h1>
-                <h2>{event.distance}</h2>
-                <h4>{event.date}</h4>
-                </div>
-            ))}
-        </div>
+        <Container>
+            <h1 className="title"> All events page!!</h1>
+            <Row>
+                {eventState.map(event => (
+                    <Col className="col-md-6 col-10">
+                        <div className="all-events">
+                            <h1>Title: {event.name}</h1>
+                            <h2>Miles: {event.distance}</h2>
+                            <h4>Date: {event.date}</h4>
+                        </div>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     )
 }
 
