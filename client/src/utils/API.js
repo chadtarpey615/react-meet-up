@@ -17,8 +17,8 @@ export default {
     },
 
     findAllEvents: function () {
-
-        return axios.get("api/workout/")
+        console.log(" hit second")
+        return axios.get("/api/workout/saved")
     }
 
 };

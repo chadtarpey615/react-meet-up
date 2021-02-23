@@ -2,7 +2,7 @@ const db = require("../models/");
 
 module.exports = {
     findAll: function (req, res) {
-        console.log("being hit for events")
+        console.log("hit fourth")
         db.Workout.find(req.query)
             .sort({ date: -1 })
             .then((dbModel) => res.json(dbModel))
@@ -21,13 +21,13 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
     create: function (req, res) {
-        // console.log("controller")
+        console.log("controller")
         db.Workout.create(req.body)
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
     },
     register: async function (req, res) {
-        console.log(req);
+        // console.log(req);
         try {
             // Creates the hashedpasswords
             const hashedPassword = await bcrypt.hashSync(req.body.password, 10);
@@ -40,7 +40,7 @@ module.exports = {
                 email: req.body.email,
                 password: hashedPassword,
             }).then((userData) => {
-                //console.log("Then");
+                console.log("hit");
                 res.send(userData);
             });
         } catch (err) {
@@ -49,7 +49,7 @@ module.exports = {
     },
 
     saveEvent: function (req, res) {
-        // console.log("saving event")
+        console.log("saving event")
         db.Workout.create({
             name: req.body.name,
             distance: req.body.distance,

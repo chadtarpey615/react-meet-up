@@ -6,4 +6,7 @@ router.route("/:eventName")
     .post(eventController.saveEvent)
     .get(eventController.findAll);
 
+
+router.route("/saved")
+    .get(eventController.create);
 module.exports = router;

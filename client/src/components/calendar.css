@@ -41,3 +41,8 @@ h1 {
   background-color: red;
   border-radius: 20px;
 }
+
+.all-events {
+  text-align: center;
+  border: 1px solid blue;
+}
