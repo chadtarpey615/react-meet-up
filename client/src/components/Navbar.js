@@ -31,6 +31,10 @@ function Navbar() {
         setUserState({});
         window.location.replace("/login")
     };
+
+    function yourCalendar() {
+        window.location.replace("/calendar/" + userState.email)
+    }
     const classes = useStyles();
     if (userState) {
         return (
@@ -43,7 +47,9 @@ function Navbar() {
                         <Typography variant="h6" className={classes.title}>
                             Meet-Up
             </Typography>
-
+                        <Link to={"/calendar/" + userState.email} style={{ textDecoration: "none", color: "white" }}>
+                            <Button onClick={yourCalendar} color="inherit"> calendar</Button>
+                        </Link>
                         <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
                             <Button onClick={handleLogOut} color="inherit">{userState.email} log out</Button>
                         </Link>

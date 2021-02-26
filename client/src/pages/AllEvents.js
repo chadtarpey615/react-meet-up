@@ -10,10 +10,11 @@ function AllEvents() {
     const { eventState, setEventState } = useContext(EventContext);
     const { userState, setUserState } = useContext(UserContext);;
     //  console.log(eventState[0].date)
-    console.log(userState)
     useEffect(() => {
         loadEvents();
-    }, [])
+        console.log(userState)
+
+    }, [EventContext])
 
     const loadEvents = async () => {
 
@@ -32,19 +33,22 @@ function AllEvents() {
     };
     return (
         <Container>
-            <h1 className="title"> All events page!! {userState.last_name.toUpperCase()}</h1>
+            {/* <h1 className="title"> All events page!! {userState.last_name.toUpperCase()}</h1> */}
             <Row>
-                {eventState.map(event => (
-                    <Col className="col-md-6 col-10">
-                        <div className="all-events" >
-                            <h1>Title: {event.name}</h1>
-                            <h2>Miles: {event.distance}</h2>
-                            <h4>Date: {event.date}</h4>
-                        </div>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
+                {
+                    eventState.map(event => (
+                        <Col className="col-md-6 col-10">
+                            <div className="all-events" >
+                                <h1>Title: {event.name}</h1>
+                                <h2>Miles: {event.distance}</h2>
+                                <h4>Date: {event.date}</h4>
+                                <button onClick={() => alert("gotcha")}>look</button>
+                            </div>
+                        </Col>
+                    ))
+                }
+            </Row >
+        </Container >
     )
 }
 

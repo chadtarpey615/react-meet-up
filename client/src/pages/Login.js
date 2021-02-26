@@ -41,7 +41,7 @@ function Login() {
             password: newLogin.password
         })
             .then(res => {
-                setUserState(res.data)
+                setUserState(res.config.data)
                 console.log(res.config.data)
 
             })

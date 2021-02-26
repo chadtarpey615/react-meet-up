@@ -18,7 +18,7 @@ function MainCalendar(props) {
     const { userState, setUserState } = useContext(UserContext);
     const [modal, setModal] = useState(false);
 
-    console.log(newEvent.name)
+    console.log(userState)
     const {
         buttonLabel,
         className
@@ -27,6 +27,7 @@ function MainCalendar(props) {
 
     useEffect(() => {
         console.log(window.location.pathname.split("/")[2])
+        console.log(userState)
     })
     // useEffect(() => {
     //     loadEvent(eventName);
