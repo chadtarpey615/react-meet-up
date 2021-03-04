@@ -41,11 +41,10 @@ function Login() {
             password: newLogin.password
         })
             .then(res => {
-                setUserState(res.config.data)
-                console.log(res.config.data)
+                setUserState(res.data)
+                console.log(res.data)
 
             })
-
             .catch(err => console.log(err))
     }
 
