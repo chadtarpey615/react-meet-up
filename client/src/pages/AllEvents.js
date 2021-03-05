@@ -31,25 +31,28 @@ function AllEvents() {
         }
 
     };
-    return (
-        <Container>
-            <h1 className="title"> All events page!! {userState.last_name.toUpperCase()}</h1>
-            <Row>
-                {
-                    // eventState.map(event => (
-                    //     <Col className="col-md-6 col-10">
-                    //         <div className="all-events" >
-                    //             <h1>Title: {event.name}</h1>
-                    //             <h2>Miles: {event.distance}</h2>
-                    //             <h4>Date: {event.date}</h4>
-                    //             <button onClick={() => alert("gotcha")}>look</button>
-                    //         </div>
-                    //     </Col>
-                    // ))
-                }
-            </Row >
-        </Container >
-    )
+    if (eventState.length)
+        return (
+            <Container>
+                <h1 className="title"> All events page!! {userState.last_name.toUpperCase()}</h1>
+                <Row>
+                    {
+                        eventState.map(event => (
+                            <Col className="col-md-6 col-10">
+                                <div className="all-events" >
+                                    <h1>Title: {event.name}</h1>
+                                    <h2>Miles: {event.distance}</h2>
+                                    <h4>Date: {event.date}</h4>
+                                    <button onClick={() => alert("gotcha")}>look</button>
+                                </div>
+                            </Col>
+                        ))
+                    }
+                </Row >
+            </Container >
+
+        )
+    return <h1>Loading events still...</h1>
 }
 
 
