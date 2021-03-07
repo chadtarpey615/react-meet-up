@@ -44,7 +44,7 @@ function Events() {
                 <TextField label="Event Name" name="name" type="text" onChange={handleInputChange} />
                 <TextField label="distance" name="distance" type="text" onChange={handleInputChange} />
                 <TextField label="date" name="date" type="text" onChange={handleInputChange} />
-                <Buttons variant="contained" onClick={handleClick} type="submit">Add</Buttons>
+                <Buttons style={{ marginTop: "10px" }} variant="contained" onClick={handleClick} type="submit">Add</Buttons>
             </form>
         </>
     )

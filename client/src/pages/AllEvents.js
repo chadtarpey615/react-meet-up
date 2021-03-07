@@ -43,7 +43,7 @@ function AllEvents() {
                                     <h1>Title: {event.name}</h1>
                                     <h2>Miles: {event.distance}</h2>
                                     <h4>Date: {event.date}</h4>
-                                    <button onClick={() => alert("gotcha")}>look</button>
+                                    <button className="event-btn" onClick={() => alert("gotcha")}>look</button>
                                 </div>
                             </Col>
                         ))
