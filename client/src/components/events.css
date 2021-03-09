@@ -169,13 +169,13 @@ p {
   margin: 0 0.5rem;
   letter-spacing: 1px;
   padding: 0.375rem 0.75rem;
-  color: var(--clr-gold);
+  color: var(--clr-green-dark);
   cursor: pointer;
   transition: var(--transition);
   border-radius: var(--radius);
 }
 .filter-btn:hover {
-  background: var(--clr-gold);
+  background: var(--clr-green-dark);
   color: var(--clr-white);
 }
 .section-center {
@@ -195,7 +195,7 @@ p {
   object-fit: cover;
   height: 200px;
   width: 100%;
-  border: 0.25rem solid var(--clr-gold);
+  border: 0.25rem solid var(--clr-green-dark);
   border-radius: var(--radius);
   display: block;
 }

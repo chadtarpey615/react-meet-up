@@ -52,7 +52,7 @@ function AllEvents() {
                                             <h4>Miles: {distance}</h4>
                                         </header>
                                         <h4>Date: {date}</h4>
-                                        <button className="event-btn" onClick={() => alert("gotcha")}>look</button>
+                                        <button className="filter-btn" onClick={() => alert("gotcha")}>look</button>
                                     </div>
                                 </article>
                             )
