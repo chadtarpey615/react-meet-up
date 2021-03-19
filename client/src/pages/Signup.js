@@ -11,6 +11,7 @@ import "../components/signUp.css";
 
 function SignUp() {
     const [newUser, setNewUser] = useState({});
+    const [darkMode, setDarkMode] = useState(false)
 
     function handleInputChange(e) {
         const { name, value } = e.target;
@@ -40,8 +41,8 @@ function SignUp() {
 
     const classes = useStyles();
     return (
-        <Container>
-            <div>
+        <Container className={darkMode ? "dark-section" : "main-section"}>
+            <div >
                 <h1>Sign Up</h1>
             </div>
 
@@ -54,6 +55,7 @@ function SignUp() {
                 <Button variant="contained" onClick={handleFormSubmit} type="submit">Default</Button>
 
             </form>
+            <button onClick={() => setDarkMode(!darkMode)}>toggle</button>
 
 
         </Container>

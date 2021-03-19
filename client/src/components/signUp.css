@@ -15,3 +15,11 @@ input {
 button {
   /* width: 15%; */
 }
+
+.main-section {
+  background-color: white;
+}
+
+.dark-section {
+  background-color: black;
+}
