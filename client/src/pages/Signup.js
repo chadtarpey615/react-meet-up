@@ -11,7 +11,16 @@ import "../components/signUp.css";
 
 function SignUp() {
     const [newUser, setNewUser] = useState({});
-    const [darkMode, setDarkMode] = useState(false)
+    const [darkMode, setDarkMode] = useState(false);
+
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            '& > *': {
+                margin: theme.spacing(1),
+                width: '25ch',
+            },
+        },
+    }));
 
     function handleInputChange(e) {
         const { name, value } = e.target;
@@ -30,14 +39,7 @@ function SignUp() {
             )
             .catch(err => console.log(err))
     }
-    const useStyles = makeStyles((theme) => ({
-        root: {
-            '& > *': {
-                margin: theme.spacing(1),
-                width: '25ch',
-            },
-        },
-    }));
+
 
     const classes = useStyles();
     return (
@@ -52,7 +54,7 @@ function SignUp() {
                 <TextField label="Last Name" onChange={handleInputChange} name="last_name" type="text" />
                 <TextField label="Email" onChange={handleInputChange} name="email" type="email" />
                 <TextField label="Password" onChange={handleInputChange} name="password" type="password" />
-                <Button variant="contained" onClick={handleFormSubmit} type="submit">Default</Button>
+                <Button variant="contained" onClick={handleFormSubmit} type="submit">Sign up</Button>
 
             </form>
             <button onClick={() => setDarkMode(!darkMode)}>toggle</button>

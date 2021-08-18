@@ -3,7 +3,8 @@ const userController = require("../../controller/userController");
 const User = require("../../models/users");
 const passport = require("../../config/passport.js")
 
-router.route("/").post(userController.register);
+router.route("/")
+    .post(userController.register);
 
 router.route("/login").post((req, res, next) => {
     console.log(req.body)

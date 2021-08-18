@@ -29,7 +29,7 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
     register: async function (req, res) {
-        console.log(req);
+        console.log("register");
         try {
             // Creates the hashedpasswords
             const hashedPassword = await bcrypt.hashSync(req.body.password, 10);
