@@ -6,7 +6,7 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3001;
 
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -16,8 +16,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost:27017/Meet-Up',
+mongoose.connect('mongodb://localhost:27017/Meet-Up',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -47,7 +46,7 @@ app.use((req, res, next) => {
 app.use(routes);
 
 app.use((req, res, next) => {
-    // console.log('req.session', req.session);
+    console.log('req.session', req.session);
     //console.log("user");
     //console.log(req.session.cookie);
     return next();

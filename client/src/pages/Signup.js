@@ -49,7 +49,7 @@ function SignUp() {
             </div>
 
 
-            <form className={classes.root} noValidate autoComplete="off">
+            <form className={classes.root} noValidate >
                 <TextField label="First Name" onChange={handleInputChange} name="first_name" type="text" />
                 <TextField label="Last Name" onChange={handleInputChange} name="last_name" type="text" />
                 <TextField label="Email" onChange={handleInputChange} name="email" type="email" />
